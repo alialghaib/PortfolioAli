@@ -94,6 +94,9 @@ header {
   color: white;
 }
 
+ul{
+  margin-left: 15px;
+}
 nav ul {
   display: flex;
   list-style: none;
@@ -277,6 +280,7 @@ nav ul li a:hover:after {
   transition: var(--transition);
 }
 
+
 .project-card:hover {
   transform: translateY(-5px);
 }
@@ -399,14 +403,25 @@ nav ul li a:hover:after {
   padding: 5rem 0;
   background-color: var(--light-color);
 }
-
+/*
 .contact-info {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
+  gap: 20px;
   gap: 2rem;
   margin-top: 3rem;
+  text-align: center;
 }
-
+*/
+.contact-info {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically if needed */
+  gap: 20px; /* Adjust spacing between the contact cards */
+  flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+  text-align: center; /* Ensures text within each card is centered */
+}
 .contact-card {
   background-color: white;
   border-radius: var(--border-radius);
@@ -548,8 +563,16 @@ footer {
 .project-detail-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  grid-template-rows:auto auto;
   gap: 2rem;
 }
+
+/* Force .project-links to appear on row 2, across columns 1 and 2 */
+.project-links {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}
+
 
 .project-detail-info {
   background-color: white;
@@ -645,3 +668,49 @@ footer {
   transform: translateY(-3px);
 }
 
+
+.project-images {
+  /* Using Grid instead of Flex */
+  display: grid;
+  
+  /* Single column that stacks items vertically */
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+  
+  justify-items: center; /* Centers items horizontally */
+  row-gap: 30px;
+  margin-top: 20px;
+}
+
+.image-stack {
+  display: grid;
+  /* Again, a single column */
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+  
+  width: 100%;
+  max-width: 600px; /* Ensures images aren't too big */
+}
+
+.image-container {
+  text-align: center;
+  width: 100%;
+}
+
+.image-container h4 {
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 550px; /* Adjusted for balance */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+}
